@@ -1,0 +1,19 @@
+<section data-ng-controller="TripController">
+	<h1>Trip Information</h1>
+	<accordion close-others="oneAtATime">
+		<div ng-repeat="group in groups">
+			<div data-ng-switch="group.type">
+			<a data-ng-switch-when="link" data-ng-href="#!/{{group.link}}">{{group.title}}</a>
+			<accordion-group data-ng-switch-default>
+				<accordion-heading>
+					{{group.title}}
+				</accordion-heading>
+				{{group.content}}
+				<ul ng-repeat="link in group.links">
+					<li><a href="link.target">{{link.title}}</a></li>
+				</ul> 
+			</accordion-group>
+			</div>
+		</div>
+	</accordion>
+</section>
